@@ -1,0 +1,16 @@
+{% extends 'todoapp/base.html' %}
+
+{% block title %} Confirm Delete Task - Todo Space {% endblock %}
+
+{% block content %}
+
+    <h1>Confirm Task to delete</h1>
+    <p>Are you sure you want to delete this task(s)?</p>
+    <blockquote>{{ task.title }}</blockquote>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes Confirm</button>
+        <button><a href="{% url 'todoapp:display_task' %}">No Cancel</a></button>
+    </form>
+
+{% endblock %}

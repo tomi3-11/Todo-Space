@@ -1,0 +1,14 @@
+{% extends 'todoapp/base.html' %}
+
+{% block title %} Home - Space Coding {% endblock %}
+
+{% block content %}
+
+    <h1>Todo Space Focused Task Manager</h1>
+    <p>Boost your productivity with our intuitive management syetem Focus timer and Calendar integration.</p>
+    <ul>
+        <li><a href="{% url 'todoapp:display_task' %}">My Tasks</a></li>
+        <li>Add task</li>
+    </ul>
+
+{% endblock %}

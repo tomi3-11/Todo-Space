@@ -1,0 +1,79 @@
+{% extends 'todoapp/base.html' %}
+{% load humanize %}
+
+{% block title %} Tasks - Todo Space {% endblock %}
+
+{% block content %}
+
+    <h1>My tasks</h1><a href="{% url 'todoapp:create_task' %}">Create New Task</a>
+    
+    <!-- Filter section for the tasks-->
+    <form action="{% url 'todoapp:display_task' %}" method="get">
+        <label>Filter By Status:</label>
+        <select name="status" onchange="this.form.submit()">
+            <option value="">All</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
+            <option value="incomplete">Incomplete</option>
+            <option value="cancelled">Cancelled</option>
+        </select>
+    </form>
+         
+        
+    <table>
+
+    <tr>
+        <th>Title</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    <tr>
+        <td>
+
+        
+        {% for task in tasks %}
+            {% if task %}
+                <ul>
+                    <li>{{ task }}</li>  <!-- Add ( {{ task.date_added|naturaltime }})-->   
+                </ul>
+            {% else %}
+                <p>No tasks added yet</p>
+            {% endif %}
+
+        {% endfor %}
+
+        </td>
+
+        <td>
+            {% for due_date in tasks %}
+
+                <ul>
+                    <li>{{ due_date.due_date }}</li>
+                </ul>
+
+            {% endfor %}
+        </td>
+
+        <td>
+            {% for status in tasks %}
+                <ul>
+                    <li>{{ status.status }}</li>
+                </ul>
+            {% endfor %}
+        </td>
+        <td>
+            {% for all_task in tasks %}
+                <ul>
+                    <li>
+                        <a href="{% url 'todoapp:edit_task' all_task.id %}">Edit</a>
+                        <a href="{% url 'todoapp:confirm_delete_task' all_task.id %}">Delete</a>
+                    </li>
+                </ul>
+
+            {% endfor %}
+        </td>
+    </tr>
+    </table>
+{% endblock %}
