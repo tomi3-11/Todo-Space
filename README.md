@@ -39,3 +39,15 @@ Ensure you have the following installed on your system.
 
 - 3. Install the project dependencies:
 ``` pip install -r requirements.txt ```  
+## Configuration
+- 1. Database Setup:
+	- Configure your database settings in the ```Todo-Space/settings.py``` file. Update the ```DATABASES``` dictionary with your database credentials.
+	- Run datbase migrations to create the necessary tables:
+	```python manage.py makemigrations todoappp```
+	```python manage.py migrate```
+	- Create a superuser to access the Django admin panel:
+	```python manage.py createsuperuser```
+
+## Running the Development Server
+To run the standard Django devlopment server:
+``` python manage.py runserver ```
