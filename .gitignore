@@ -2,3 +2,6 @@
 /venv
 db.sqlite3
 /TPenv 
+
+
+/__pycache__/
