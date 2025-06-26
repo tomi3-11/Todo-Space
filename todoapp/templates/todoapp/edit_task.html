@@ -3,9 +3,11 @@
 {% block title %} Edit Task - Todo Space {% endblock %}
 
 {% block content %}
-
-    <a href="{% url 'todoapp:display_task' %}">Back to Tasks</a>
-    <h1>Edit Task</h1>
+    <div class="d-flex justify-content-between mb-3">
+        <h1>Edit Task</h1>
+        <a class="btn btn-secondary mb-3" href="{% url 'todoapp:display_task' %}">Back to Tasks</a>
+    </div>
+    
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

@@ -8,15 +8,18 @@ from django.contrib import auth
 # Create your views here.
 
 def display_task(request):
-    #title = get_object_or_404(Task, id=task_id)
     tasks = Task.objects.all()
-
     status_filter = request.GET.get('status')
+
     if status_filter in ['pending', 'completed', 'cancelled', 'incomplete']:
         tasks = tasks.filter(status=status_filter)
 
-    context = {'tasks': tasks}
+    context = {
+        'tasks': tasks,
+        'status_filter': status_filter  # pass it to the template
+    }
     return render(request, 'todoapp/display_task.html', context)
+
 
 
 def create_task(request):

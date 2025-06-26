@@ -9,8 +9,9 @@
     <blockquote>{{ task.title }}</blockquote>
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Yes Confirm</button>
-        <button><a href="{% url 'todoapp:display_task' %}">No Cancel</a></button>
+        <button class="btn btn-success" type="submit">Yes Confirm</button>
+        <button class="btn btn-secondary"><a class="text-white text-decoration-none" href="{% url 'todoapp:display_task' %}">No Cancel</a></button>
     </form>
+
 
 {% endblock %}
