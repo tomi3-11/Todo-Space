@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Task
 from .forms import TaskForm, EditForm
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.contrib import auth
 
 # Create your views here.
 

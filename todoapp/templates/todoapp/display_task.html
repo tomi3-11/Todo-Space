@@ -5,13 +5,14 @@
 
 {% block content %}
 
-    <h1>My tasks</h1><a href="{% url 'todoapp:create_task' %}">Create New Task</a>
+    <h1>My tasks</h1>
+    <a class="btn btn-success" href="{% url 'todoapp:create_task' %}">Create New Task</a>
     
     <!-- Filter section for the tasks-->
     <form action="{% url 'todoapp:display_task' %}" method="get">
         <label>Filter By Status:</label>
         <select name="status" onchange="this.form.submit()">
-            <option value="">All</option>
+            <option>All</option>
             <option value="pending">Pending</option>
             <option value="completed">Completed</option>
             <option value="incomplete">Incomplete</option>
@@ -20,13 +21,13 @@
     </form>
          
         
-    <table>
+    <table class="table table-striped">
 
     <tr>
-        <th>Title</th>
-        <th>Due Date</th>
-        <th>Status</th>
-        <th>Action</th>
+        <th class="text-center">Title</th>
+        <th class="text-center">Due Date</th>
+        <th class="text-center">Status</th>
+        <th class="text-center">Action</th>
     </tr>
 
     <tr>
@@ -35,7 +36,7 @@
         
         {% for task in tasks %}
             {% if task %}
-                <ul>
+                <ul style="list-style-type: none;">
                     <li>{{ task }}</li>  <!-- Add ( {{ task.date_added|naturaltime }})-->   
                 </ul>
             {% else %}
@@ -49,7 +50,7 @@
         <td>
             {% for due_date in tasks %}
 
-                <ul>
+                <ul style="list-style-type: none;">
                     <li>{{ due_date.due_date }}</li>
                 </ul>
 
@@ -58,17 +59,17 @@
 
         <td>
             {% for status in tasks %}
-                <ul>
+                <ul style="list-style-type: none;">
                     <li>{{ status.status }}</li>
                 </ul>
             {% endfor %}
         </td>
         <td>
             {% for all_task in tasks %}
-                <ul>
+                <ul style="list-style-type: none;">
                     <li>
-                        <a href="{% url 'todoapp:edit_task' all_task.id %}">Edit</a>
-                        <a href="{% url 'todoapp:confirm_delete_task' all_task.id %}">Delete</a>
+                        <a class="edit" href="{% url 'todoapp:edit_task' all_task.id %}">Edit</a>
+                        <a class="del" href="{% url 'todoapp:confirm_delete_task' all_task.id %}">Delete</a>
                     </li>
                 </ul>
 
@@ -76,4 +77,16 @@
         </td>
     </tr>
     </table>
+
+    <style>
+        a {
+            text-decoration: none;
+        }
+        .del {
+            color: red;
+        }
+        .edit {
+            color: rgb(5, 232, 5);
+        }
+    </style>
 {% endblock %}

@@ -1,7 +1,13 @@
-
+# Virtual environments
 /venv
-db.sqlite3
 /TPenv 
 
+# Databases
+db.sqlite3
 
+# Cache
 __pycache__/
+*/__pycache__/
+
+# Python
+.pyc
