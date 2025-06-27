@@ -4,11 +4,24 @@
 
 {% block content %}
 
-    <h1>Todo Space Focused Task Manager</h1>
-    <p>Boost your productivity with our intuitive management syetem Focus timer and Calendar integration.</p>
-    <ul>
-        <li><a href="{% url 'todoapp:display_task' %}">My Tasks</a></li>
-        <li>Add task</li>
-    </ul>
+<h1 class="text-center">Todo Space Task Manager</h1>
+<p class="text-center">Boost your productivity with our intuitive management syetem Focus Timer and Calendar
+    integration.</p>
+<ul>
+    <li><a href="{% url 'todoapp:display_task' %}">My Tasks</a></li>
+    <li>Add task</li>
+</ul>
+<div class="card text-center">
+    <div class="card-header">
+        Ready to get Started
+    </div>
+    <div class="card-body">
+        <div class="card-text">
+            create your first task now and experience the power of Todo Space's
+            integrated productivity tools
+        </div>
+        <a href="{% url 'todoapp:create_task' %}" class="btn btn-primary mt-4">Create Your First Task</a>
+    </div>
+</div>
 
 {% endblock %}
