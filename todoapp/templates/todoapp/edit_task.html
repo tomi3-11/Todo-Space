@@ -3,6 +3,10 @@
 {% block title %} Edit Task - Todo Space {% endblock %}
 
 {% block content %}
+
+    <!-- {% if message %}
+        <p>{{ message }}</p>
+    {% endif %} -->
     <div class="d-flex justify-content-between mb-3">
         <h1>Edit Task</h1>
         <a class="btn btn-secondary mb-3" href="{% url 'todoapp:display_task' %}">Back to Tasks</a>

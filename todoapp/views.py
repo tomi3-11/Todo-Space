@@ -43,7 +43,7 @@ def edit_task(request, task_id):
         if form.is_valid:
             form.save()
 
-            # messages.success(request, "Task Updated successfully")
+            messages.success(request, "Task Updated successfully")
             return redirect('todoapp:display_task')
     else:
         form = EditForm(instance=task)

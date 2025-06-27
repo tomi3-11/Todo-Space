@@ -4,10 +4,32 @@
 {% block title %} Tasks - Todo Space {% endblock %}
 
 {% block content %}
-<div class="mb3 d-flex justify-content-between">
+<div class="mb-3 d-flex justify-content-between">
     <h1>My tasks</h1>
     <a class="btn btn-success mb-4" href="{% url 'todoapp:create_task' %}">Create New Task</a>
 </div>
+{% if messages %}
+<div aria-atomic="true" aria-live="polite" class="position-relative">
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1055;">
+        {% for message in messages %}
+        <div class="toast align-items-center text-bg-{{ message.tags }} border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    {{ message }}
+                </div>
+                <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %} -->
+    {% endif %}
+</div>
+
 
 <form action="{% url 'todoapp:display_task' %}" method="get" class="mb-4">
     <div class="d-flex align-items-center gap-2 mb-3">

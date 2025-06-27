@@ -7,10 +7,52 @@
 <h1 class="text-center">Todo Space Task Manager</h1>
 <p class="text-center">Boost your productivity with our intuitive management syetem Focus Timer and Calendar
     integration.</p>
-<ul>
-    <li><a href="{% url 'todoapp:display_task' %}">My Tasks</a></li>
-    <li>Add task</li>
-</ul>
+
+<!-- Card styling for the home card display -->
+<div class="row mb-4">
+    <!-- View Tasks Card-->
+    <div class="col-12 col-sm-6 col-md-4 mb-3 mx-auto">
+        <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column">
+                <div class="card-icon"><i class="fa fa-tasks text-primary fa-2x"></i></div>
+                <h5 class="card-title">Task Management</h5>
+                <p class="card-text flex-grow-1">
+                    Greatly Organise your task ........................
+                </p>
+                <a href="{% url 'todoapp:display_task' %}" class="btn btn-primary mt-auto w-auto align-self-center">View tasks</a>
+            </div>
+        </div>
+    </div>
+    <!-- Focus card -->
+    <div class="col-12 col-sm-6 col-md-4 mx-auto mb-3">
+        <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column">
+                <div class="card-icon"><i class="fa fa-clock-o text-primary fa-2x"></i></i></div>
+                <h5 class="card-title">Focus Timer</h5>
+                <p class="card-text flex-grow-1">
+                    Stay Productive with focus timer, manage time efficiently ..............................
+                </p>
+                <a href="#" class="btn btn-primary mt-auto w-auto align-self-center">Start Focusing</a>
+            </div>
+        </div>
+    </div>
+    <!-- Calendar Card -->
+     <div class="col-12 col-sm-6 col-md-4 mb-3 mx-auto">
+        <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column">
+                <div class="card-icon"><i class="fa fa-calendar text-primary fa-2x"></i></div>
+                <h5 class="card-title">Calendar View</h5>
+                <p class="card-text flex-grow-1">
+                    Visualize your tasks in our integrated calendar and finish all tasks efficiently 
+                    ...............
+                </p>
+                <a href="#" class="btn btn-primary mt-auto w-auto align-self-center">Open Calendar</a>
+            </div>
+        </div>
+     </div>
+</div>
+
+<!-- Card styling for the home CTA display -->
 <div class="card text-center">
     <div class="card-header">
         Ready to get Started
