@@ -22,11 +22,6 @@
         </div>
         {% endfor %}
     </div>
-    <!-- {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">
-        {{ message }}
-    </div>
-    {% endfor %} -->
     {% endif %}
 </div>
 
@@ -63,7 +58,8 @@
             {% for task in tasks %}
             {% if task %}
             <ul style="list-style-type: none;">
-                <li>{{ task }}</li> <!-- Add ( {{ task.date_added|naturaltime }})-->
+                <li><strong><em>{{ task }}</em></strong></li> <!-- Add ( {{ task.date_added|naturaltime }})-->
+                <!-- <li>{{ task.description|truncatechars:50 }}</li> -->
             </ul>
             {% else %}
             <p>No tasks added yet</p>
