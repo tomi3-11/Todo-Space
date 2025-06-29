@@ -1,0 +1,50 @@
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.calendar th {
+    background: #eee;
+}
+
+.calendar td {
+    border: 1px solid #ddd;
+    vertical-align: top;
+    height: 100px;
+    padding: 5px;
+}
+
+.calendar td ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.calendar td ul li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    background: rgb(98, 98, 247);
+    padding: 6px;
+    border-radius: 10px;
+    color: #ddd;
+}
+
+.task-completed {
+    color: #00ff00;
+}
+
+.task-pending {
+    color: #ff0000;
+}
+
+.date {
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 10px;
+    list-style: none;
+}

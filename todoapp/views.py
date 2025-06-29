@@ -4,6 +4,8 @@ from .forms import TaskForm, EditForm
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib import auth
+from .utils import TaskCalendar
+from datetime import datetime
 
 # Create your views here.
 
@@ -64,3 +66,27 @@ def delete_task(request, task_id):
 
 def home(request):
     return render(request, 'todoapp/home.html')
+
+
+# Calendar View
+def calendar_view(request):
+    # Get month and year from the URL or use current
+    month = int(request.GET.get('month', datetime.now().month))
+    year = int(request.GET.get('year', datetime.now().year))
+    
+    if month < 1:
+        month = 12
+        year -= 1
+    elif month > 12:
+        month = 1
+        year += 1
+    
+    tasks = Task.objects.all()
+    cal = TaskCalendar(tasks).formatmonth(year, month)
+    context = {
+        'calendar': cal,
+        'month': month,
+        'year': year,
+    }
+    
+    return render(request, 'todoapp/calendar.html', context)

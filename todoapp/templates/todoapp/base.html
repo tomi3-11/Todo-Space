@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +12,9 @@
 
     <!-- font Awesome ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Google Fonts -->
 
+    <!-- CSS Styling -->
+    <link rel="stylesheet" href="{% static 'css/calendar.css' %}">
 
 </head>
 
@@ -36,7 +38,7 @@
                         <a class="nav-link" href="#">Focus</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Calendar</a>
+                        <a class="nav-link" href="{% url 'todoapp:calendar_view' %}">Calendar</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Sign Up</a>

@@ -1,0 +1,6 @@
+Things to be solved
+
+1. Calendar and footer conflict
+2. Clickable tasks links to tasks lists
+3. edit tasks from the calendar
+4. exporting tasks as pdf or csv.
