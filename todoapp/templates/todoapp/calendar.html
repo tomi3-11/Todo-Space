@@ -1,20 +1,21 @@
 {% extends 'todoapp/base.html' %}
 {% load static %}
 
-{% block title %}Calendar - TodoSpace {% endblock %}
+{% block title %}Calendar - TodoSpace{% endblock %}
 
 {% block content %}
-<h1>Calendar - {{ month }}/{{ year }}</h1>
+<div class="container py-4">
+    <h1>Calendar - {{ month }}/{{ year }}</h1>
 
-<!-- Navigation -->
-<div>
-    <a href="?month={{ month|add:'-1'}}&year={{ year }}">Previous</a>
-    <a href="?month={{ month|add:'1'}}&year={{ year }}">Next</a>
+    <!-- Navigation -->
+    <div class="mb-3">
+        <a class="btn btn-outline-primary me-2" href="?month={{ month|add:'-1' }}&year={{ year }}">Previous</a>
+        <a class="btn btn-outline-primary" href="?month={{ month|add:'1' }}&year={{ year }}">Next</a>
+    </div>
 
-
+    <!-- Calendar Output -->
+    <div class="table-responsive" style="background: #ffe;">
+        {{ calendar|safe }}
+    </div>
 </div>
-<div style="background: #ffe;">
-    {{ calendar|safe }}
-</div>
-
 {% endblock %}
