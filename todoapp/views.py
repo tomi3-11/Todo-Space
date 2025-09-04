@@ -23,7 +23,6 @@ def display_task(request):
     return render(request, 'todoapp/display_task.html', context)
 
 
-
 def create_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
