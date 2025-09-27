@@ -4,7 +4,8 @@
 
 # Databases
 db.sqlite3
-migrations/
+*/migrations/
+# todoapp/migrations/
 
 # Cache
 __pycache__/
