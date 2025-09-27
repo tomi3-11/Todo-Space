@@ -4,6 +4,7 @@
 
 # Databases
 db.sqlite3
+migrations/
 
 # Cache
 __pycache__/
