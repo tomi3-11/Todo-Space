@@ -9,6 +9,7 @@ from datetime import datetime
 
 # Create your views here.
 
+# Displaying tasks
 def display_task(request):
     tasks = Task.objects.all()
     status_filter = request.GET.get('status')
@@ -22,7 +23,7 @@ def display_task(request):
     }
     return render(request, 'todoapp/display_task.html', context)
 
-
+# Creating tasks
 def create_task(request):
     if request.method == 'POST':
         form = TaskForm(request.POST)
@@ -36,7 +37,7 @@ def create_task(request):
     context = {'form': form }
     return render(request, 'todoapp/create_task.html', context)
 
-
+# Updating tasks
 def edit_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     if request.method == "POST":
@@ -52,7 +53,7 @@ def edit_task(request, task_id):
     context = {'form': form, 'task': task}
     return render(request, 'todoapp/edit_task.html', context)
 
-
+# Deleting tasks
 def delete_task(request, task_id):
     if request.method == 'POST':
         task = get_object_or_404(Task, id=task_id)
@@ -62,7 +63,7 @@ def delete_task(request, task_id):
     else:
         return render(request, 'todoapp/comfirm_delete_task.html')
 
-
+# Home page
 def home(request):
     return render(request, 'todoapp/home.html')
 
